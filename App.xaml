@@ -5,4 +5,9 @@
     xmlns:local="using:kent_glo_20180830"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <x:Double x:Key="app_width">1080</x:Double>
+        <x:Double x:Key="app_height">1920</x:Double>
+    </Application.Resources>
+    
 </Application>
