@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="kent_glo_20180830.UI.PageA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:kent_glo_20180830.UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="Black"   Width="{StaticResource app_width}"
+                               Height="{StaticResource app_height}">
+
+        <MediaPlayerElement x:Name="MediaPlayer"
+                                Width="{StaticResource app_width}"
+                                Height="{StaticResource app_height}"
+                                Stretch="Uniform"
+                                ManipulationMode="All"
+                                Tapped="MediaPlayer_Tapped"
+                                AutoPlay="False"
+                                AreTransportControlsEnabled="False"/>
+
+    </Grid>
+</Page>

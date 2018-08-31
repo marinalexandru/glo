@@ -7,16 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black">
-        
-        <MediaPlayerElement x:Name="MediaPlayer"
-                                Width="{StaticResource app_width}"
-                                Height="{StaticResource app_height}"
-                                Stretch="Uniform"
-                                ManipulationMode="All"
-                                Tapped="MediaPlayer_Tapped"
-                                AutoPlay="False"
-                                AreTransportControlsEnabled="False"/>
 
+    <Grid Background="Transparent"
+          Width="{StaticResource app_width}"
+          Height="{StaticResource app_height}">
+
+        <Grid Tapped="NoCustomerLoop_Tapped"
+              Name="NoCustomerLoop"
+              Background="#01007700"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top"
+              Margin="100,420,0,0"
+              Width="350"
+              Height="130"/>
+        
     </Grid>
 </Page>

@@ -73,7 +73,7 @@ namespace kent_glo_20180830
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(PageNoCustomerLoop), e.Arguments);
+                    rootFrame.Navigate(typeof(MediaPlayerPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
