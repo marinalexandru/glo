@@ -13,14 +13,14 @@
             <DoubleAnimation 
                 Storyboard.TargetName="MediaPlayer1"
                 Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
-                From="0" To="1" Duration="0:0:0.4" AutoReverse="False"  />
+                From="0" To="1" Duration="0:0:0.5" AutoReverse="False"  />
         </Storyboard>
 
         <Storyboard x:Key="MediaPlayer1FadeOut">
             <DoubleAnimation 
                 Storyboard.TargetName="MediaPlayer1"
                 Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
-                From="1" To="0" Duration="0:0:0.4" AutoReverse="False"  />
+                From="1" To="0" Duration="0:0:0.5" AutoReverse="False"  />
         </Storyboard>
 
 
@@ -28,14 +28,14 @@
             <DoubleAnimation 
                 Storyboard.TargetName="MediaPlayer2"
                 Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
-                From="0" To="1" Duration="0:0:0.4" AutoReverse="False"  />
+                From="0" To="1" Duration="0:0:0.5" AutoReverse="False"  />
         </Storyboard>
 
         <Storyboard x:Key="MediaPlayer2FadeOut">
             <DoubleAnimation 
                 Storyboard.TargetName="MediaPlayer2"
                 Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
-                From="1" To="0" Duration="0:0:0.4" AutoReverse="False"  />
+                From="1" To="0" Duration="0:0:0.5" AutoReverse="False"  />
         </Storyboard>
 
     </Page.Resources>

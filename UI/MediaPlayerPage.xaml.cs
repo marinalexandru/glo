@@ -65,11 +65,17 @@ namespace kent_glo_20180830.UI
             Uri pathUri = new Uri(String.Format("ms-appx:///Assets/Videos/{0}.mp4", video));
             MediaSource source = MediaSource.CreateFromUri(pathUri);
 
-            animateMediaPlayers();
             switchFocusedMediaPlayers();
 
             getFocusedMediaPlayerElement().MediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 
+            if (videoState == VIDEO_STATE.LOOP)
+            {
+                getFocusedMediaPlayerElement().MediaPlayer.IsLoopingEnabled = true;
+            }else
+            {
+                getFocusedMediaPlayerElement().MediaPlayer.IsLoopingEnabled = false;
+            }
 
             this.videoState = videoState;
             if (videoEnded != null)
@@ -80,11 +86,19 @@ namespace kent_glo_20180830.UI
             getFocusedMediaPlayerElement().Source = source;
 
             getFocusedMediaPlayerElement().MediaPlayer.Play();
+            Task.Delay(100).ContinueWith(async t => {
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    animateMediaPlayers();
+
+                });
+            });
+
         }
 
         private void animateMediaPlayers()
         {
-            if (focussedMediaPLayerElement == MediaPlayer1)
+            if (focussedMediaPLayerElement == MediaPlayer2)
             {
                 Storyboard storyboardFadeOut = this.Resources["MediaPlayer1FadeOut"] as Storyboard;
                 storyboardFadeOut.Begin();
@@ -138,10 +152,10 @@ namespace kent_glo_20180830.UI
                 switch (videoState)
                 {
                     case VIDEO_STATE.NO_LOOP:
-                        this.getFocusedMediaPlayerElement().MediaPlayer.Pause();
+                        getFocusedMediaPlayerElement().MediaPlayer.Pause();
                         return;
                     case VIDEO_STATE.LOOP:
-                        this.getFocusedMediaPlayerElement().MediaPlayer.Play();
+                        
                         return;
                 }
 
