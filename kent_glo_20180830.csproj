@@ -120,6 +120,12 @@
     <Compile Include="UI\PageD.xaml.cs">
       <DependentUpon>PageD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PageDBack.xaml.cs">
+      <DependentUpon>PageDBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PageE.xaml.cs">
+      <DependentUpon>PageE.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\PageNoCustomerLoop.xaml.cs">
       <DependentUpon>PageNoCustomerLoop.xaml</DependentUpon>
     </Compile>
@@ -205,6 +211,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\PageD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageDBack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

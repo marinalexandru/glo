@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="kent_glo_20180830.UI.PageD"
+    x:Class="kent_glo_20180830.UI.PageDBack"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:kent_glo_20180830.UI"
