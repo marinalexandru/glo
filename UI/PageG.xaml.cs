@@ -35,8 +35,7 @@ namespace kent_glo_20180830.UI
         private void PageG_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
-            mediaPlayerPage.setOnVideoEnded(() => goToGLoop());
-            mediaPlayerPage.loadVideo(G, MediaPlayerPage.VIDEO_STATE.NO_LOOP);
+            mediaPlayerPage.loadVideo(G, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => { goToGLoop(); });
         }
 
         private void goToGLoop()

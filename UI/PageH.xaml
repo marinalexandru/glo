@@ -6,8 +6,31 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Grid Background="Transparent"   
+          Width="{StaticResource app_width}"
+          Height="{StaticResource app_height}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Name="continueToVideo"
+              Tapped="continueToVideo_Tapped"
+              Background="#01007700"
+              Visibility="Collapsed"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Bottom"
+              Margin="0,0,80,240"
+              Width="310"
+              Height="100"/>
+
+        <Grid Name="back"
+              Tapped="back_Tapped"
+              Background="#01007700"
+              Visibility="Collapsed"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Bottom"
+              Margin="60,0,0,240"
+              Width="200"
+              Height="100"/>
+
+
 
     </Grid>
 </Page>
