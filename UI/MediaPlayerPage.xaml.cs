@@ -41,6 +41,8 @@ namespace kent_glo_20180830.UI
 
         private VideoEnded videoEnded;
 
+        public string currentPlayingVideo;
+
         private MediaPlayerElement focussedMediaPLayerElement;
         
 
@@ -59,7 +61,7 @@ namespace kent_glo_20180830.UI
 
         public void loadVideo(String video, VIDEO_STATE videoState, VideoEnded videoEnded = null)
         {
-            
+            currentPlayingVideo = video;
             Uri pathUri = new Uri(String.Format("ms-appx:///Assets/Videos/{0}.mp4", video));
             MediaSource source = MediaSource.CreateFromUri(pathUri);
 
@@ -96,6 +98,11 @@ namespace kent_glo_20180830.UI
                 Storyboard storyboardFadeIn = this.Resources["MediaPlayer1FadeIn"] as Storyboard;
                 storyboardFadeIn.Begin();
             }
+        }
+
+        public void setOnVideoEnded(VideoEnded videoEnded)
+        {
+            this.videoEnded = videoEnded;
         }
 
         private void switchFocusedMediaPlayers()

@@ -51,6 +51,7 @@ namespace kent_glo_20180830.UI
             Storyboard storyboard = this.Resources["ImageFadeOut"] as Storyboard;
             storyboard.Begin();
             storyboard.Completed += (_1, _2) => navigateForward();
+            mediaPlayerPage.loadVideo(PageA.A, MediaPlayerPage.VIDEO_STATE.NO_LOOP);
         }
 
         private void no_Tapped(object sender, TappedRoutedEventArgs e)

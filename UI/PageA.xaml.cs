@@ -27,6 +27,8 @@ namespace kent_glo_20180830.UI
     {
         private MediaPlayerPage mediaPlayerPage;
 
+        public const string A = "a";
+
         public PageA()
         {
             this.InitializeComponent();
@@ -36,7 +38,13 @@ namespace kent_glo_20180830.UI
         private void PageA_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
-            mediaPlayerPage.loadVideo("a", MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
+
+            if (mediaPlayerPage.currentPlayingVideo == A)
+            {
+                mediaPlayerPage.setOnVideoEnded(() => showContinue());
+                return;
+            }
+            mediaPlayerPage.loadVideo(A, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
         }
 
         private void showContinue()
