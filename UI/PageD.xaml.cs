@@ -24,7 +24,7 @@ namespace kent_glo_20180830.UI
     {
         private MediaPlayerPage mediaPlayerPage;
 
-        private const string D = "D";
+        private const string D = "d";
 
         public PageD()
         {

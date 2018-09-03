@@ -22,9 +22,36 @@ namespace kent_glo_20180830.UI
     /// </summary>
     public sealed partial class PageF : Page
     {
+        private MediaPlayerPage mediaPlayerPage;
+
+        private const string F = "f";
+
         public PageF()
         {
             this.InitializeComponent();
+            this.Loaded += PageF_Loaded;
+        }
+
+        private void PageF_Loaded(object sender, RoutedEventArgs e)
+        {
+            mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
+            mediaPlayerPage.loadVideo(F, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
+        }
+
+        private void showContinue()
+        {
+            continueToVideo.Visibility = Visibility.Visible;
+            back.Visibility = Visibility.Visible;
+        }
+
+        private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageG));
+        }
+
+        private void back_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageFBack));
         }
     }
 }

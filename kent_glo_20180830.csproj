@@ -132,6 +132,15 @@
     <Compile Include="UI\PageF.xaml.cs">
       <DependentUpon>PageF.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PageFBack.xaml.cs">
+      <DependentUpon>PageFBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PageG.xaml.cs">
+      <DependentUpon>PageG.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PageGLoop.xaml.cs">
+      <DependentUpon>PageGLoop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\PageNoCustomerLoop.xaml.cs">
       <DependentUpon>PageNoCustomerLoop.xaml</DependentUpon>
     </Compile>
@@ -233,6 +242,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\PageF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageFBack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageG.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageGLoop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,22 +20,22 @@ namespace kent_glo_20180830.UI
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PageEBack : Page
+    public sealed partial class PageFBack : Page
     {
         private MediaPlayerPage mediaPlayerPage;
 
-        private const string E_BACK = "e_back";
+        private const string F_BACK = "f_back";
 
-        public PageEBack()
+        public PageFBack()
         {
             this.InitializeComponent();
-            this.Loaded += PageEBack_Loaded;
+            this.Loaded += PageFBack_Loaded;
         }
 
-        private void PageEBack_Loaded(object sender, RoutedEventArgs e)
+        private void PageFBack_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
-            mediaPlayerPage.loadVideo(E_BACK, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
+            mediaPlayerPage.loadVideo(F_BACK, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
         }
 
         private void showContinue()
@@ -46,12 +46,12 @@ namespace kent_glo_20180830.UI
 
         private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            mediaPlayerPage.navigateTo(typeof(PageE));
+            mediaPlayerPage.navigateTo(typeof(PageF));
         }
 
         private void back_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            mediaPlayerPage.navigateTo(typeof(PageDBack));
+            mediaPlayerPage.navigateTo(typeof(PageEBack));
         }
     }
 }

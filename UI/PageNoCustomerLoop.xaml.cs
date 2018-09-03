@@ -40,6 +40,10 @@ namespace kent_glo_20180830.UI
         private void PageNoCustomerLoop_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
+            if (mediaPlayerPage.currentPlayingVideo == NO_CUSTOMER_LOOP)
+            {
+                return;
+            }
             mediaPlayerPage.loadVideo(NO_CUSTOMER_LOOP, MediaPlayerPage.VIDEO_STATE.LOOP);
         }
 

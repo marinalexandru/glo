@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="kent_glo_20180830.UI.PageF"
+    x:Class="kent_glo_20180830.UI.PageFBack"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:kent_glo_20180830.UI"
@@ -18,7 +18,7 @@
               Visibility="Collapsed"
               HorizontalAlignment="Right"
               VerticalAlignment="Bottom"
-              Margin="0,0,80,240"
+              Margin="0,0,110,310"
               Width="310"
               Height="100"/>
 
@@ -28,7 +28,7 @@
               Visibility="Collapsed"
               HorizontalAlignment="Left"
               VerticalAlignment="Bottom"
-              Margin="60,0,0,240"
+              Margin="80,0,0,310"
               Width="200"
               Height="100"/>
 
