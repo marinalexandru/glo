@@ -7,10 +7,48 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black"   Width="{StaticResource app_width}"
+    <Page.Resources>
+
+        <Storyboard x:Key="MediaPlayer1FadeIn">
+            <DoubleAnimation 
+                Storyboard.TargetName="MediaPlayer1"
+                Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
+                From="0" To="1" Duration="0:0:0.4" AutoReverse="False"  />
+        </Storyboard>
+
+        <Storyboard x:Key="MediaPlayer1FadeOut">
+            <DoubleAnimation 
+                Storyboard.TargetName="MediaPlayer1"
+                Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
+                From="1" To="0" Duration="0:0:0.4" AutoReverse="False"  />
+        </Storyboard>
+
+
+        <Storyboard x:Key="MediaPlayer2FadeIn">
+            <DoubleAnimation 
+                Storyboard.TargetName="MediaPlayer2"
+                Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
+                From="0" To="1" Duration="0:0:0.4" AutoReverse="False"  />
+        </Storyboard>
+
+        <Storyboard x:Key="MediaPlayer2FadeOut">
+            <DoubleAnimation 
+                Storyboard.TargetName="MediaPlayer2"
+                Storyboard.TargetProperty="(MediaPlayer.Opacity)" 
+                From="1" To="0" Duration="0:0:0.4" AutoReverse="False"  />
+        </Storyboard>
+
+    </Page.Resources>
+
+    <ScrollViewer Background="Transparent" 
+                  Width="Auto"
+                  Height="Auto"
+                  HorizontalScrollBarVisibility="Hidden"
+                  VerticalScrollBarVisibility="Hidden">
+        <Grid Background="Black"   Width="{StaticResource app_width}"
                                 Height="{StaticResource app_height}">
 
-        <MediaPlayerElement x:Name="MediaPlayer"
+            <MediaPlayerElement x:Name="MediaPlayer2"
                                 Width="{StaticResource app_width}"
                                 Height="{StaticResource app_height}"
                                 Stretch="Uniform"
@@ -18,9 +56,21 @@
                                 AutoPlay="False"
                                 AreTransportControlsEnabled="False"/>
 
-        <Frame x:Name="NavFrame"
+            <MediaPlayerElement x:Name="MediaPlayer1"
+                                Width="{StaticResource app_width}"
+                                Height="{StaticResource app_height}"
+                                Stretch="Uniform"
+                                ManipulationMode="All"
+                                AutoPlay="False"
+                                AreTransportControlsEnabled="False"/>
+
+
+
+
+            <Frame x:Name="NavFrame"
                Width="{StaticResource app_width}"
                Height="{StaticResource app_height}"/>
 
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

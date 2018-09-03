@@ -105,6 +105,9 @@
     <Compile Include="UI\PageA.xaml.cs">
       <DependentUpon>PageA.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PageB.xaml.cs">
+      <DependentUpon>PageB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\PageNoCustomerLoop.xaml.cs">
       <DependentUpon>PageNoCustomerLoop.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\PageA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

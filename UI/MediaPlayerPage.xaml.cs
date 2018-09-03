@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,6 +28,7 @@ namespace kent_glo_20180830.UI
     public sealed partial class MediaPlayerPage : Page
     {
 
+        
         public enum VIDEO_STATE
         {
             LOOP,
@@ -36,9 +39,10 @@ namespace kent_glo_20180830.UI
 
         private VIDEO_STATE videoState;
 
-        private String currentPlayingVideo;
-
         private VideoEnded videoEnded;
+
+        private MediaPlayerElement focussedMediaPLayerElement;
+        
 
         public MediaPlayerPage()
         {
@@ -46,35 +50,77 @@ namespace kent_glo_20180830.UI
             this.Loaded += MediaPlayerPage_Loaded;
         }
 
-        public void loadVideo(String video)
+        private void MediaPlayerPage_Loaded(object sender, RoutedEventArgs e)
         {
-            currentPlayingVideo = video;
+            focussedMediaPLayerElement = MediaPlayer1;
+
+            navigateTo(typeof(PageNoCustomerLoop));
+        }
+
+        public void loadVideo(String video, VIDEO_STATE videoState, VideoEnded videoEnded = null)
+        {
+            
             Uri pathUri = new Uri(String.Format("ms-appx:///Assets/Videos/{0}.mp4", video));
-            MediaPlayer.Source = MediaSource.CreateFromUri(pathUri);
-        }
+            MediaSource source = MediaSource.CreateFromUri(pathUri);
 
-        public void playVideo(VIDEO_STATE videoState, VideoEnded videoEnded = null)
-        {
+            animateMediaPlayers();
+            switchFocusedMediaPlayers();
+
+            getFocusedMediaPlayerElement().MediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
+
+
             this.videoState = videoState;
-            this.videoEnded = videoEnded;
-            MediaPlayer.MediaPlayer.Play();
+            if (videoEnded != null)
+            {
+                this.videoEnded = videoEnded;
+            }
+
+            getFocusedMediaPlayerElement().Source = source;
+
+            getFocusedMediaPlayerElement().MediaPlayer.Play();
         }
 
-        public string getCuurentVideo()
+        private void animateMediaPlayers()
         {
-            return currentPlayingVideo;
+            if (focussedMediaPLayerElement == MediaPlayer1)
+            {
+                Storyboard storyboardFadeOut = this.Resources["MediaPlayer1FadeOut"] as Storyboard;
+                storyboardFadeOut.Begin();
+                Storyboard storyboardFadeIn = this.Resources["MediaPlayer2FadeIn"] as Storyboard;
+                storyboardFadeIn.Begin();
+            }
+            else
+            {
+                Storyboard storyboardFadeOut = this.Resources["MediaPlayer2FadeOut"] as Storyboard;
+                storyboardFadeOut.Begin();
+                Storyboard storyboardFadeIn = this.Resources["MediaPlayer1FadeIn"] as Storyboard;
+                storyboardFadeIn.Begin();
+            }
+        }
+
+        private void switchFocusedMediaPlayers()
+        {
+            if (focussedMediaPLayerElement == MediaPlayer1)
+            {
+                focussedMediaPLayerElement = MediaPlayer2;
+            }else
+            {
+                focussedMediaPLayerElement = MediaPlayer1;
+            }
+        }
+
+        private MediaPlayerElement getFocusedMediaPlayerElement()
+        {
+            return focussedMediaPLayerElement;
         }
 
         public void navigateTo(Type pageType)
         {
+            if (NavFrame.BackStack.Count > 0)
+            {
+                NavFrame.BackStack.RemoveAt(0);
+            }
             NavFrame.Navigate(pageType);
-        }
-
-        private void MediaPlayerPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            MediaPlayer.MediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
-
-            navigateTo(typeof(PageNoCustomerLoop));
         }
 
         private async void MediaPlayer_MediaEnded(MediaPlayer sender, object args)
@@ -85,9 +131,10 @@ namespace kent_glo_20180830.UI
                 switch (videoState)
                 {
                     case VIDEO_STATE.NO_LOOP:
+                        this.getFocusedMediaPlayerElement().MediaPlayer.Pause();
                         return;
                     case VIDEO_STATE.LOOP:
-                        this.MediaPlayer.MediaPlayer.Play();
+                        this.getFocusedMediaPlayerElement().MediaPlayer.Play();
                         return;
                 }
 

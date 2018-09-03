@@ -14,14 +14,14 @@
             <DoubleAnimation 
                 Storyboard.TargetName="imgInfo"
                 Storyboard.TargetProperty="(Image.Opacity)" 
-                From="0" To="1" Duration="0:0:0.35" AutoReverse="False"  />
+                From="0" To="1" Duration="0:0:0.75" AutoReverse="False"  />
         </Storyboard>
 
         <Storyboard x:Key="ImageFadeOut">
             <DoubleAnimation 
                 Storyboard.TargetName="imgInfo"
                 Storyboard.TargetProperty="(Image.Opacity)" 
-                From="1" To="0" Duration="0:0:0.35" AutoReverse="False"  />
+                From="1" To="0" Duration="0:0:1.3" AutoReverse="False"  />
         </Storyboard>
 
     </Page.Resources>
@@ -37,8 +37,8 @@
                Stretch="Uniform"/>
 
 
-        <Grid Name="yes"
-              Tapped="yes_Tapped"
+        <Grid Name="no"
+              Tapped="no_Tapped"
               Background="#01007700"
               Visibility="Collapsed"
               HorizontalAlignment="Right"
@@ -47,8 +47,8 @@
               Width="300"
               Height="100"/>
 
-        <Grid Name="no"
-              Tapped="no_Tapped"
+        <Grid Name="yes"
+              Tapped="yes_Tapped"
               Background="#01007700"
               Visibility="Collapsed"
               HorizontalAlignment="Left"
@@ -56,5 +56,6 @@
               Margin="210,280,0,200"
               Width="300"
               Height="100"/>
+        
     </Grid>
 </Page>

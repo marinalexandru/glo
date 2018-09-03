@@ -50,14 +50,14 @@ namespace kent_glo_20180830.UI
         {
             Storyboard storyboard = this.Resources["ImageFadeOut"] as Storyboard;
             storyboard.Begin();
-            storyboard.Completed += (_1, _2) => navigateBack();
+            storyboard.Completed += (_1, _2) => navigateForward();
         }
 
         private void no_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Storyboard storyboard = this.Resources["ImageFadeOut"] as Storyboard;
             storyboard.Begin();
-            storyboard.Completed += (_1, _2) => navigateForward();
+            storyboard.Completed += (_1, _2) => navigateBack();
         }
 
         private void navigateForward()

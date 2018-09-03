@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Media.Core;
-using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,20 +20,21 @@ namespace kent_glo_20180830.UI
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PageA : Page
+    public sealed partial class PageB : Page
     {
         private MediaPlayerPage mediaPlayerPage;
+        public const string B = "b";
 
-        public PageA()
+        public PageB()
         {
             this.InitializeComponent();
-            this.Loaded += PageA_Loaded;
+            this.Loaded += PageB_Loaded;
         }
 
-        private void PageA_Loaded(object sender, RoutedEventArgs e)
+        private void PageB_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
-            mediaPlayerPage.loadVideo("a", MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
+            mediaPlayerPage.loadVideo(B, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
         }
 
         private void showContinue()
@@ -46,7 +44,7 @@ namespace kent_glo_20180830.UI
 
         private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            mediaPlayerPage.navigateTo(typeof(PageB));
+
         }
     }
 }
