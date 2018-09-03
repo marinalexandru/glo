@@ -14,14 +14,14 @@
             <DoubleAnimation 
                 Storyboard.TargetName="imgInfo"
                 Storyboard.TargetProperty="(Image.Opacity)" 
-                From="0" To="1" Duration="0:0:0.75" AutoReverse="False"  />
+                From="0" To="1" Duration="0:0:0.4" AutoReverse="False"  />
         </Storyboard>
 
         <Storyboard x:Key="ImageFadeOut">
             <DoubleAnimation 
                 Storyboard.TargetName="imgInfo"
                 Storyboard.TargetProperty="(Image.Opacity)" 
-                From="1" To="0" Duration="0:0:1.5" AutoReverse="False"  />
+                From="1" To="0" Duration="0:0:0.4" AutoReverse="False"  />
         </Storyboard>
 
     </Page.Resources>

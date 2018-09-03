@@ -108,6 +108,18 @@
     <Compile Include="UI\PageB.xaml.cs">
       <DependentUpon>PageB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PageBBack.xaml.cs">
+      <DependentUpon>PageBBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PageC.xaml.cs">
+      <DependentUpon>PageC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PageCBack.xaml.cs">
+      <DependentUpon>PageCBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PageD.xaml.cs">
+      <DependentUpon>PageD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\PageNoCustomerLoop.xaml.cs">
       <DependentUpon>PageNoCustomerLoop.xaml</DependentUpon>
     </Compile>
@@ -177,6 +189,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\PageB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageBBack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageCBack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

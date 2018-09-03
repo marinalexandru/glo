@@ -20,37 +20,30 @@ namespace kent_glo_20180830.UI
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PageB : Page
+    public sealed partial class PageBBack : Page
     {
         private MediaPlayerPage mediaPlayerPage;
-        public const string B = "b";
-
-        public PageB()
+        public const string B_BACK = "b_back";
+        public PageBBack()
         {
             this.InitializeComponent();
-            this.Loaded += PageB_Loaded;
+            this.Loaded += PageBBack_Loaded;
         }
 
-        private void PageB_Loaded(object sender, RoutedEventArgs e)
+        private void PageBBack_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
-            mediaPlayerPage.loadVideo(B, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
+            mediaPlayerPage.loadVideo(B_BACK, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
         }
 
         private void showContinue()
         {
             continueToVideo.Visibility = Visibility.Visible;
-            back.Visibility = Visibility.Visible;
         }
 
         private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            mediaPlayerPage.navigateTo(typeof(PageC));
-        }
-
-        private void back_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            mediaPlayerPage.navigateTo(typeof(PageBBack));
+            mediaPlayerPage.navigateTo(typeof(PageB));
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -49,9 +51,16 @@ namespace kent_glo_20180830.UI
         private void yes_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Storyboard storyboard = this.Resources["ImageFadeOut"] as Storyboard;
-            storyboard.Begin();
             storyboard.Completed += (_1, _2) => navigateForward();
             mediaPlayerPage.loadVideo(PageA.A, MediaPlayerPage.VIDEO_STATE.NO_LOOP);
+
+            Task.Delay(200).ContinueWith(async t => {
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    storyboard.Begin();
+                });
+            });
+
         }
 
         private void no_Tapped(object sender, TappedRoutedEventArgs e)
