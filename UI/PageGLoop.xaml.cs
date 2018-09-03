@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kent_glo_20180830.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,6 +29,18 @@ namespace kent_glo_20180830.UI
 
         private const string G_LOOP = "g_loop";
 
+        public const string G_BLUE_ON = "g_blue_on";
+        public const string G_BLUE_OFF = "g_blue_off";
+        public const string G_YELLOW_ON = "g_yellow_on";
+        public const string G_YELLOW_OFF = "g_yellow_off";
+        public const string G_GREEN_ON = "g_green_on";
+        public const string G_GREEN_OFF = "g_green_off";
+        public const string G_PURPLE_ON = "g_purple_on";
+        public const string G_PURPLE_OFF = "g_purple_off";
+        public const string G_VELVET_ON = "g_velvet_on";
+        public const string G_VELVET_OFF = "g_velvet_off";
+
+
         public PageGLoop()
         {
             this.InitializeComponent();
@@ -42,12 +55,37 @@ namespace kent_glo_20180830.UI
 
         private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            mediaPlayerPage.navigateTo(typeof(PageH));
         }
 
         private void back_Tapped(object sender, TappedRoutedEventArgs e)
         {
             mediaPlayerPage.navigateTo(typeof(PageGBack));
+        }
+
+        private void blue_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageGOnOff), new VideoTupleParams() { On = G_BLUE_ON, Off = G_BLUE_OFF });
+        }
+
+        private void yellow_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageGOnOff), new VideoTupleParams() { On = G_YELLOW_ON, Off = G_YELLOW_OFF });
+        }
+
+        private void green_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageGOnOff), new VideoTupleParams() { On = G_GREEN_ON, Off = G_GREEN_OFF });
+        }
+
+        private void purple_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageGOnOff), new VideoTupleParams() { On = G_PURPLE_ON, Off = G_PURPLE_OFF });
+        }
+
+        private void velvet_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageGOnOff), new VideoTupleParams() { On = G_VELVET_ON, Off = G_VELVET_OFF });
         }
     }
 }

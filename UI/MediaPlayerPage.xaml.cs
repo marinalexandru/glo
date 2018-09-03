@@ -55,7 +55,8 @@ namespace kent_glo_20180830.UI
         private void MediaPlayerPage_Loaded(object sender, RoutedEventArgs e)
         {
             focussedMediaPLayerElement = MediaPlayer1;
-            navigateTo(typeof(PageNoCustomerLoop));
+            //navigateTo(typeof(PageNoCustomerLoop));
+            navigateTo(typeof(PageGLoop));
         }
 
         public void loadVideo(String video, VIDEO_STATE videoState, VideoEnded videoEnded = null)
@@ -81,6 +82,10 @@ namespace kent_glo_20180830.UI
             if (videoEnded != null)
             {
                 this.videoEnded = videoEnded;
+            }
+            else
+            {
+                this.videoEnded = null;
             }
 
             getFocusedMediaPlayerElement().Source = source;
@@ -143,13 +148,19 @@ namespace kent_glo_20180830.UI
             return focussedMediaPLayerElement;
         }
 
-        public void navigateTo(Type pageType)
+        public void navigateTo(Type pageType, Object payload = null)
         {
             if (NavFrame.BackStack.Count > 0)
             {
                 NavFrame.BackStack.RemoveAt(0);
             }
-            NavFrame.Navigate(pageType);
+            if (payload == null)
+            {
+                NavFrame.Navigate(pageType);
+                return;
+            }
+            NavFrame.Navigate(pageType, payload);
+
         }
 
         private async void MediaPlayer_MediaEnded(MediaPlayer sender, object args)
