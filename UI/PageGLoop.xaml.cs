@@ -40,5 +40,14 @@ namespace kent_glo_20180830.UI
             mediaPlayerPage.loadVideo(G_LOOP, MediaPlayerPage.VIDEO_STATE.LOOP);
         }
 
+        private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void back_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaPlayerPage.navigateTo(typeof(PageGBack));
+        }
     }
 }

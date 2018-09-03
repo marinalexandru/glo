@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="kent_glo_20180830.UI.PageGLoop"
+    x:Class="kent_glo_20180830.UI.PageGBack"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:kent_glo_20180830.UI"
@@ -11,10 +11,10 @@
           Width="{StaticResource app_width}"
           Height="{StaticResource app_height}">
 
-
         <Grid Name="continueToVideo"
               Tapped="continueToVideo_Tapped"
               Background="#01007700"
+              Visibility="Collapsed"
               HorizontalAlignment="Right"
               VerticalAlignment="Bottom"
               Margin="0,0,80,240"
@@ -24,10 +24,14 @@
         <Grid Name="back"
               Tapped="back_Tapped"
               Background="#01007700"
+              Visibility="Collapsed"
               HorizontalAlignment="Left"
               VerticalAlignment="Bottom"
               Margin="60,0,0,240"
               Width="200"
               Height="100"/>
+
+
+
     </Grid>
 </Page>

@@ -138,6 +138,9 @@
     <Compile Include="UI\PageG.xaml.cs">
       <DependentUpon>PageG.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PageGBack.xaml.cs">
+      <DependentUpon>PageGBack.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\PageGLoop.xaml.cs">
       <DependentUpon>PageGLoop.xaml</DependentUpon>
     </Compile>
@@ -250,6 +253,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\PageG.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PageGBack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

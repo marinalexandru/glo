@@ -28,7 +28,7 @@ namespace kent_glo_20180830.UI
     public sealed partial class MediaPlayerPage : Page
     {
 
-        
+
         public enum VIDEO_STATE
         {
             LOOP,
@@ -44,7 +44,7 @@ namespace kent_glo_20180830.UI
         public string currentPlayingVideo;
 
         private MediaPlayerElement focussedMediaPLayerElement;
-        
+
 
         public MediaPlayerPage()
         {
@@ -55,7 +55,6 @@ namespace kent_glo_20180830.UI
         private void MediaPlayerPage_Loaded(object sender, RoutedEventArgs e)
         {
             focussedMediaPLayerElement = MediaPlayer1;
-
             navigateTo(typeof(PageNoCustomerLoop));
         }
 
@@ -65,14 +64,15 @@ namespace kent_glo_20180830.UI
             Uri pathUri = new Uri(String.Format("ms-appx:///Assets/Videos/{0}.mp4", video));
             MediaSource source = MediaSource.CreateFromUri(pathUri);
 
+            getFocusedMediaPlayerElement().MediaPlayer.MediaEnded -= MediaPlayer_MediaEnded;
             switchFocusedMediaPlayers();
-
             getFocusedMediaPlayerElement().MediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 
             if (videoState == VIDEO_STATE.LOOP)
             {
                 getFocusedMediaPlayerElement().MediaPlayer.IsLoopingEnabled = true;
-            }else
+            }
+            else
             {
                 getFocusedMediaPlayerElement().MediaPlayer.IsLoopingEnabled = false;
             }
@@ -86,29 +86,36 @@ namespace kent_glo_20180830.UI
             getFocusedMediaPlayerElement().Source = source;
 
             getFocusedMediaPlayerElement().MediaPlayer.Play();
-            Task.Delay(100).ContinueWith(async t => {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                {
-                    animateMediaPlayers();
-
-                });
-            });
-
+            animateMediaPlayers();
         }
 
         private void animateMediaPlayers()
         {
             if (focussedMediaPLayerElement == MediaPlayer2)
             {
-                Storyboard storyboardFadeOut = this.Resources["MediaPlayer1FadeOut"] as Storyboard;
-                storyboardFadeOut.Begin();
+                Task.Delay(350).ContinueWith(async t =>
+                {
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        Storyboard storyboardFadeOut = this.Resources["MediaPlayer1FadeOut"] as Storyboard;
+                        storyboardFadeOut.Begin();
+
+                    });
+                });
                 Storyboard storyboardFadeIn = this.Resources["MediaPlayer2FadeIn"] as Storyboard;
                 storyboardFadeIn.Begin();
             }
             else
             {
-                Storyboard storyboardFadeOut = this.Resources["MediaPlayer2FadeOut"] as Storyboard;
-                storyboardFadeOut.Begin();
+                Task.Delay(350).ContinueWith(async t =>
+                {
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        Storyboard storyboardFadeOut = this.Resources["MediaPlayer2FadeOut"] as Storyboard;
+                        storyboardFadeOut.Begin();
+                    });
+                });
+
                 Storyboard storyboardFadeIn = this.Resources["MediaPlayer1FadeIn"] as Storyboard;
                 storyboardFadeIn.Begin();
             }
@@ -124,7 +131,8 @@ namespace kent_glo_20180830.UI
             if (focussedMediaPLayerElement == MediaPlayer1)
             {
                 focussedMediaPLayerElement = MediaPlayer2;
-            }else
+            }
+            else
             {
                 focussedMediaPLayerElement = MediaPlayer1;
             }
@@ -149,16 +157,6 @@ namespace kent_glo_20180830.UI
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 videoEnded?.Invoke();
-                switch (videoState)
-                {
-                    case VIDEO_STATE.NO_LOOP:
-                        getFocusedMediaPlayerElement().MediaPlayer.Pause();
-                        return;
-                    case VIDEO_STATE.LOOP:
-                        
-                        return;
-                }
-
             });
         }
     }
