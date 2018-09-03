@@ -20,13 +20,13 @@ namespace kent_glo_20180830.UI
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PageH : Page
+    public sealed partial class PageHBack : Page
     {
         private MediaPlayerPage mediaPlayerPage;
 
-        private const string H = "h";
+        private const string H_BACK = "h_back";
 
-        public PageH()
+        public PageHBack()
         {
             this.InitializeComponent();
             this.Loaded += PageH_Loaded;
@@ -35,23 +35,12 @@ namespace kent_glo_20180830.UI
         private void PageH_Loaded(object sender, RoutedEventArgs e)
         {
             mediaPlayerPage = Utils.Utils.FindParent<MediaPlayerPage>(this);
-            mediaPlayerPage.loadVideo(H, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => showContinue());
+            mediaPlayerPage.loadVideo(H_BACK, MediaPlayerPage.VIDEO_STATE.NO_LOOP, () => { goToGLoop(); });
         }
 
-        private void showContinue()
+        private void goToGLoop()
         {
-            continueToVideo.Visibility = Visibility.Visible;
-            back.Visibility = Visibility.Visible;
-        }
-
-        private void continueToVideo_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            mediaPlayerPage.navigateTo(typeof(PageNoCustomerLoop));
-        }
-
-        private void back_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            mediaPlayerPage.navigateTo(typeof(PageHBack));
+            mediaPlayerPage.navigateTo(typeof(PageGLoop));
         }
     }
 }

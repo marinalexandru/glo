@@ -55,7 +55,8 @@ namespace kent_glo_20180830.UI
         private void MediaPlayerPage_Loaded(object sender, RoutedEventArgs e)
         {
             focussedMediaPLayerElement = MediaPlayer1;
-            navigateTo(typeof(PageNoCustomerLoop));
+            //navigateTo(typeof(PageNoCustomerLoop));            
+            navigateTo(typeof(PageH));
         }
 
         public void loadVideo(String video, VIDEO_STATE videoState, VideoEnded videoEnded = null)
