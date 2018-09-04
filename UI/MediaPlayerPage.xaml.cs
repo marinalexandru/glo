@@ -55,8 +55,7 @@ namespace kent_glo_20180830.UI
         private void MediaPlayerPage_Loaded(object sender, RoutedEventArgs e)
         {
             focussedMediaPLayerElement = MediaPlayer1;
-            //navigateTo(typeof(PageNoCustomerLoop));            
-            navigateTo(typeof(PageH));
+            navigateTo(typeof(PageNoCustomerLoop));
         }
 
         public void loadVideo(String video, VIDEO_STATE videoState, VideoEnded videoEnded = null)
@@ -98,7 +97,7 @@ namespace kent_glo_20180830.UI
         {
             if (focussedMediaPLayerElement == MediaPlayer2)
             {
-                Task.Delay(350).ContinueWith(async t =>
+                Task.Delay(650).ContinueWith(async t =>
                 {
                     await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
@@ -107,12 +106,18 @@ namespace kent_glo_20180830.UI
 
                     });
                 });
-                Storyboard storyboardFadeIn = this.Resources["MediaPlayer2FadeIn"] as Storyboard;
-                storyboardFadeIn.Begin();
+                Task.Delay(200).ContinueWith(async t =>
+                {
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        Storyboard storyboardFadeIn = this.Resources["MediaPlayer2FadeIn"] as Storyboard;
+                        storyboardFadeIn.Begin();
+                    });
+                });
             }
             else
             {
-                Task.Delay(350).ContinueWith(async t =>
+                Task.Delay(650).ContinueWith(async t =>
                 {
                     await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
@@ -121,8 +126,15 @@ namespace kent_glo_20180830.UI
                     });
                 });
 
-                Storyboard storyboardFadeIn = this.Resources["MediaPlayer1FadeIn"] as Storyboard;
-                storyboardFadeIn.Begin();
+                Task.Delay(200).ContinueWith(async t =>
+                {
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+
+                        Storyboard storyboardFadeIn = this.Resources["MediaPlayer1FadeIn"] as Storyboard;
+                        storyboardFadeIn.Begin();
+                    });
+                });
             }
         }
 

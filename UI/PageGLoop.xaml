@@ -13,6 +13,7 @@
 
 
         <Grid Name="blue"
+              Visibility="Collapsed"
               Margin="50,550,0,0"
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
@@ -22,6 +23,7 @@
               Background="#01007700"
               />
         <Grid Name="yellow"
+              Visibility="Collapsed"
               Margin="0,550,0,0"
               VerticalAlignment="Top"
               HorizontalAlignment="Center"
@@ -31,6 +33,7 @@
               Background="#01007700"
               />
         <Grid Name="green"
+              Visibility="Collapsed"
               Margin="0,550,50,0"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
@@ -40,6 +43,7 @@
               Background="#01007700"
               />
         <Grid Name="purple"
+              Visibility="Collapsed"
               Margin="210,1050,0,0"
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
@@ -49,6 +53,7 @@
               Background="#01007700"
               />
         <Grid Name="velvet"
+              Visibility="Collapsed"
               Margin="0,1050,240,0"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
@@ -59,6 +64,7 @@
               />
 
         <Grid Name="continueToVideo"
+              Visibility="Collapsed"
               Tapped="continueToVideo_Tapped"
               Background="#01007700"
               HorizontalAlignment="Right"
@@ -68,6 +74,7 @@
               Height="100"/>
 
         <Grid Name="back"
+              Visibility="Collapsed"
               Tapped="back_Tapped"
               Background="#01007700"
               HorizontalAlignment="Left"
