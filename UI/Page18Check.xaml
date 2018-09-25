@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-
     <Page.Resources>
 
         <Storyboard x:Key="ImageFadeIn">
@@ -32,30 +31,63 @@
 
         <Image x:Name="imgInfo"
                Width="{StaticResource app_width}"
-               Height="{StaticResource app_height}"
                Source="ms-appx:///Assets/Images/18_check.png"
-               Stretch="Uniform"/>
+               Stretch="Uniform" Margin="0,10,0,0"/>
+
+        <Button Name="day"
+              Tapped="day_Tapped"
+              Background="#01007700"
+              Visibility="Collapsed"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Center"
+              Margin="135,70,210,200"
+              Width="240"
+              Height="100">
+            <Button.Flyout>
+                <DatePickerFlyout Date="{x:Bind ChosenDay, Mode=TwoWay}"/>
+            </Button.Flyout>
+        </Button>
 
 
-        <Grid Name="no"
-              Tapped="no_Tapped"
+        <Button Name="month"
+              Tapped="month_Tapped"
+              Background="#01007700"
+              Visibility="Collapsed"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Margin="155,70,210,200"
+              Width="240"
+              Height="100">
+            <Button.Flyout>
+                <DatePickerFlyout Date="{x:Bind ChosenMonth, Mode=TwoWay}"/>
+            </Button.Flyout>
+        </Button>
+
+
+        <Button Name="year"
+              Tapped="year_Tapped"
               Background="#01007700"
               Visibility="Collapsed"
               HorizontalAlignment="Right"
               VerticalAlignment="Center"
-              Margin="0,280,210,200"
-              Width="300"
-              Height="100"/>
+              Margin="0,70,145,200"
+              Width="280"
+              Height="100">
+            <Button.Flyout>
+                <DatePickerFlyout Date="{x:Bind ChosenYear, Mode=TwoWay}"/>
+            </Button.Flyout>
+        </Button>
 
         <Grid Name="yes"
               Tapped="yes_Tapped"
               Background="#01007700"
               Visibility="Collapsed"
-              HorizontalAlignment="Left"
+              HorizontalAlignment="Center"
               VerticalAlignment="Center"
-              Margin="210,280,0,200"
+              Margin="0,390,0,0"
               Width="300"
               Height="100"/>
-        
+
+
     </Grid>
 </Page>
