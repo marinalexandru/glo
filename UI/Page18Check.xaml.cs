@@ -61,9 +61,17 @@ namespace kent_glo_20180830.UI
 
         private void configureFlyouts()
         {
-            setDatePicker(CALENDAR_DISPLAY.DAY_ONLY, (day.Flyout as DatePickerFlyout));
-            setDatePicker(CALENDAR_DISPLAY.MONTH_ONLY, (month.Flyout as DatePickerFlyout));
-            setDatePicker(CALENDAR_DISPLAY.YEAR_ONLY, (year.Flyout as DatePickerFlyout));
+            var dayPickerFlyout = day.Flyout as DatePickerFlyout;
+            var monthPickerFlyout = month.Flyout as DatePickerFlyout;
+            var yearPickerFlyout = year.Flyout as DatePickerFlyout;
+
+            setDatePicker(CALENDAR_DISPLAY.DAY_ONLY, dayPickerFlyout);
+            setDatePicker(CALENDAR_DISPLAY.MONTH_ONLY, monthPickerFlyout);
+            setDatePicker(CALENDAR_DISPLAY.YEAR_ONLY, yearPickerFlyout);
+
+            dayPickerFlyout.DatePicked += (_1, _2) => DayText.Text = ChosenDay.ToString("dd");
+            monthPickerFlyout.DatePicked += (_1, _2) => MonthText.Text = ChosenMonth.ToString("MM");
+            yearPickerFlyout.DatePicked += (_1, _2) => YearText.Text = ChosenYear.ToString("yyyy");
 
         }
 
@@ -84,6 +92,25 @@ namespace kent_glo_20180830.UI
 
         private void yes_Tapped(object sender, TappedRoutedEventArgs e)
         {
+
+            if (DayText.Text == String.Empty || MonthText.Text == String.Empty || YearText.Text == String.Empty)
+            {
+                return;
+            }
+
+            var birthDate = new DateTime(ChosenYear.Year, ChosenMonth.Month, ChosenDay.Day);
+
+            if (birthDate.AddYears(18) < DateTime.Now)
+            {
+                acceptUser();
+                return;
+            }
+            rejectUser();
+
+        }
+
+        private void acceptUser()
+        {
             Storyboard storyboard = this.Resources["ImageFadeOut"] as Storyboard;
             storyboard.Completed += (_1, _2) => navigateForward();
             mediaPlayerPage.loadVideo(PageA.A, MediaPlayerPage.VIDEO_STATE.NO_LOOP);
@@ -95,10 +122,9 @@ namespace kent_glo_20180830.UI
                     storyboard.Begin();
                 });
             });
-
         }
 
-        private void no_Tapped(object sender, TappedRoutedEventArgs e)
+        private void rejectUser()
         {
             Storyboard storyboard = this.Resources["ImageFadeOut"] as Storyboard;
             storyboard.Begin();
@@ -117,19 +143,17 @@ namespace kent_glo_20180830.UI
 
         private void day_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //var ap = new ButtonAutomationPeer(Picker);
-            //var ip = ap.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-            //ip?.Invoke();
+            e.Handled = true;
         }
 
         private void month_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            e.Handled = true;
         }
 
         private void year_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            e.Handled = true;
         }
     }
 }
