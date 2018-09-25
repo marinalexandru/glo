@@ -30,7 +30,6 @@ namespace kent_glo_20180830.UI
     public sealed partial class Page18Check : Page
     {
 
-
         public DateTimeOffset ChosenDay { get; set; }
         public DateTimeOffset ChosenMonth { get; set; }
         public DateTimeOffset ChosenYear { get; set; }
@@ -141,19 +140,5 @@ namespace kent_glo_20180830.UI
             mediaPlayerPage.navigateTo(typeof(PageNoCustomerLoop));
         }
 
-        private void day_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void month_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void year_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
     }
 }
