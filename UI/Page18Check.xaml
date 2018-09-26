@@ -58,7 +58,7 @@
             FontSize="37"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Margin="132,100,210,200"
+            Margin="138,115,210,200"
             Width="240"
             Height="100"/>
 
@@ -84,7 +84,7 @@
             FontSize="37"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Margin="154,100,210,200"
+            Margin="148,115,210,200"
             Width="240"
             Height="100"/>
 
@@ -110,7 +110,7 @@
             FontSize="37"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-            Margin="0,100,133,200"
+            Margin="0,115,147,200"
             Width="280"
             Height="100"/>
 

@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\18_check.png" />
+    <Content Include="Assets\Images\18_check_backup2.png" />
     <Content Include="Assets\Images\18_check_backup.png" />
     <Content Include="Assets\Videos\a.mp4" />
     <Content Include="Assets\Videos\b.mp4" />
